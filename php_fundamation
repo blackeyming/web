@@ -1,0 +1,38 @@
+1. 数组从第0个元素开始， 例如： " $team=array("you","me","he","her");"
+2. disply : " echo $team[0]; "
+3. 二维数组：“ $team=array( array("you","he"), array("me","it"))” 
+4. php 命名是大小写敏感的
+5. php 提供了利用"<<<" 运算符构建多行字符串序列的方法，称为here-document(heredoc)， 例如：
+echo<<<_end
+this is my 
+word ,so thsat
+_end;
+可以再heredoc结构里自由使用单引号和双引号而不用加转义字符
+6. php是一种松散的语言，变量使用之前可以不用先声明。
+7. 定义常量： “define ("ROOT_LOCATION", "/usr/local/www/");” 使用： “$directory= $ROOT_LOCATION ; "
+8. 预定义常量，开头和末尾有两个下划线，如 "__LINE__" 文件的当前行号； "__FILE__" 文件的完整路径和文件名
+"__DIR__" 文件目录 ； “__FUNCTION__” 函数名 ； "__CLASS__" 类名； "__METHOD__" 类方法名； “__NAME SPACE__”当前名字空间名
+9. ehco 不是函数，没有返回值， print 是带一个参数的函数。
+10. 函数： function longdate($time){ return date("l F jS Y", $time)};
+11. 全局变量声明： "global $valiablename" 慎用全局变量，方便debug。
+12. 静态变量： 作用域在在函数内部， 然后每次调用时，初始化的语句被跳过， 值能够变。 " static $count=12;" 静态变量不允许用表达式初始化。
+13. 超级全局变量： 一些php系统预定义的变量,可以随意访问，但是有安全性要注意。
+“$GLOBALS” 当前定义在脚本全局范围内的全部变量，变量名是数组的键
+“$_SERVER” 标题，路径和脚本位置之类的信息，网络服务器在这个数组中创建实体。
+"_GET" 由HTTP的GET方法传递给当前脚本的变量
+"_POST" 有HTTP的POST方法传递给单前脚本的变量
+"_FILE" 由HTTP的POST方法上传到当前脚本的项目
+“_COOKIE” 由HTTP的cookies传递给当前脚本的变量
+"$_SESSION" 当前脚本可用的回话变量
+"$_REQUEST" 有默认的“$_GET”“$_POST”“$_COOKIE”传递给浏览器的信息内容
+"_NEW" 由环境方法传给当前脚本的变量
+例如： 当前用户访问的页面URL ： " $came_from=$_SERVER['HTTP_REFERER'] ; "
+14. 黑客使用恶意代码加载超级全局变量，所以使用之前要对他们进行清洁处理： 利用htmlentities函数
+“$came_from= htmlentities($_SERVER['HTTP_REFERER']);"
+15. TRUE　和 FALSE 是PHP中的预定义常量，也可以使用小写，小写更加稳定，因为php不允许对他们重定义。而大写可以。
+16. php 动态链接，将网站开发分成不同的部分是明智之举，例如： 一个与其他过程严格不同的过程以及对它进行的检查加入网站时
+需要2确认电子邮件地址，检查用户名是否存在等，第二个可能更需要的模块就是在用户转向网站主要部分之前进行的用户登录，接着可能
+需要一个留言板的消息模块，一个包含链接和有用信息的模块和一个允许上传图片的模块等。只要创建了一个通过cookie是或session
+变量来在站内追踪用户的方法，就可以将网站分成明确的几块php回话代码。每一块都自我控制，这样就可以再以后开发新特性和维护老特性
+17. 支持按引用传递参数
+18.include 和 require
