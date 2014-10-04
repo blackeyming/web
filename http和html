@@ -33,5 +33,37 @@ how are you?
 “how are you?" 会直接输出到浏览器。php提供开发者与html代码无缝结合且迅捷的脚本语言。
 7. MySQL结构的最高层是数据库，在数据库中可以创建一个或多个存储数据的表。
 8. 创建javascript是为了实现以脚本的方式来访问html文档中的所有元素，换句话说javascript提供了一种和用户动态交互的途径。比如、
-在输入表单中检验Email地址的有效性。
-9. 
+在输入表单中检验Email地址的有效性。结合CSS，javascript能够改变眼前动态网页的样式吗，而不是让服务器返回一个新的页面。
+9. 使用好javascript需要一定的技巧，因为不同的浏览器设计者选择了不同的实现方式，主要是一些浏览器厂商为了竞争而增添了额外
+功能，致使各浏览器之间并不能很好的兼容。 写一段能让所有浏览器接受的简单的javascript代码：
+<script type="javascript">
+  document.wirte("Hello world, today is "+Date());
+</script>
+10. CSS现在提供先前只有javascript才支持的动态交互，例如，不但可以为html设置样式来改变他的尺寸，颜色，边界，间隔等，
+而且可以为页面添加生动的变化和变换。例如
+<style>
+  p
+  {
+    text-align:justify;
+    font-family:Helvetica;
+  }
+</stype>
+11. Apache web服务器不仅仅提供html文件的服务，还能处理其他很多类型的文件，包括图像文件，Flash文件，MP3音频文件，RSS供给等
+12. php可以创造图像和其他文件，不管是在服务提供的过程中还是提供之前，通常需要将模块预先编译成Apache或php.也可以在运行时调用
+GD(graphic draw)库就是这样一个模块，php用它来创建和出来图像
+13. 服务器代理模块（proxy），能够实现将经常被请求的页面存储在缓存中从而减轻服务器的负载。
+14. 重写（rewrite）模块，实现web服务器将不同的url类型按照自己内部的要求重写。
+15. php负责处理服务器端的所有的主要工作，MySQL负责管理所有的数据，CSS和javascript一起负责网页的显示，在站点想要更新
+内容时（网页和服务器上都可以），javascript还能通过和服务器端的php代码的交互来实现更新。
+16. Gmail例子中Ajax执行的大致流程是：
+（1） 服务器端输出html代码来生产web表单，web表单中包含username，firstname，，，这些注册账户必要的详细信息
+（2） 同时，服务器会在描述页面的html代码中附加一些javascript代码来监听username的输入框中是否已经输入了文本内容以及
+由于用户单击其他输入框导致该输入框失去焦点。
+（3） 一旦文本失去了焦点，后台的javascript代码会将输入框中的username传送到服务器端的php脚本并且等待回应
+（4） web服务器端收索到这个username并根据这个是否存在回应javascript
+（5） javascript会在username的输入框附近显示提示文本信息，提示所提交的username是否可用。
+（6） 如果不可用，但是用户仍然提交了这个表单，javascript会阻止表单的提交并重新强调。
+所有这些都是在后台运行的，所以如果不用Ajax，整个表单会被提交的到服务器端，然后服务器会返回标明错误的html页面
+
+
+
