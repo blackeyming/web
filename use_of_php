@@ -1,0 +1,19 @@
+1. printf()直接可以输出字符串和变量，还可以设置输出格式和精度
+2. date() 是使用标准的UNIX时间戳，从1970年1月1日0点开始为基准
+3. time() 当前时间戳
+4. checkdate() 将月，日，年传给函数，如果日期是有效的，返回TRUE.
+5. file_exists() 检查文件是否存在
+6. fwrite() 访问要打开的文件； fclose()关闭要访问的文件
+7. copy() 复制函数可以复制文件
+8. rename() 对文件重命名
+9. unlink() 函数将文件从文件系统中删除
+10. fgets() fseek() 不明
+11. flock() 解决多用户访问冲突问题，给文件加锁知道程序释放了锁才解散用户队列。 上锁：flock($fh, LOCK_EX); 解锁：flock($fh, LOCK_UN);
+12. file_get_contents("filename") 读取整个文件的内容。
+13. move_uploaded_file()上传文件
+14. $_FILES,当文件上传时，有五个元素存储在这个数组中，$_FILE['file']['name'] 上传的文件的名字； 
+‘type’ 类型；‘size’;'tmp_name' 存储在服务器上的临时文件的名字 ； 'error' 上传文件导致的错误代码。
+15. 验证， 表单数据的验证是很重要的。防止用户侵入服务器。
+16. XHTML 使用了更像XML的标准语法，便于利用简单的解析器处理。html终会被XHTML取代
+17.XHTML中所有的标记必须用另一个标记来封闭； 所有的标记必须正确嵌套； 所有的属性必须包含在引号内；大小写敏感且必须小写
+第一行必须使用新的XML声明，如<?xml version="1.0" encoding="UTF-8"?>
