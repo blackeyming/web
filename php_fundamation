@@ -87,5 +87,23 @@ _end;
 32. 关联数组：可以通过元素的名字而不是下标来访问元素。 如$paper['chuming']="fuck you"; echo $paper['chuming'];
 33. count() 统计数组中有多少元素。如count($paper); 如果要知道一个多维数组中到底有多少元素用： echo count($paper,1); 该参数
 只能是0和1， 0限制只统计顶层数组元素的个数，1强制且递归统计子数组的元素个数。
-    
+34. sort() 在提供的数组上直接排序，而不返回排序后的新数组，该函数排序成功返回TRUE,排序出错返回FALSE，还支持一些标记，比如
+强制按照数值或字符串排序 sort($paper, SORT_NUMERIC); sort($paper,SORT_STRING);
+35. shuffle() 将数组中的元素按照随机顺序排序
+36. explore() 允许接受一个包含几个单一字母的独立项的字符串，并将这些项放到一个数组中，如： $temp=explore(' ', "This is a sentence with seven words");
+第一个参数表示分割的标志
+37. extract() 用法不明
+38. compact() 通过变量及其值来创建数组该函数与extract()函数相反:
+    $fname="me";
+    $sname="you";
+    $what=compat('fram','sname');
+    print_r($what); 输出结果是
+    Array
+    (
+        [fname]=>me;
+        [sname]=>you;
+    )
+39. reset() 将代码返回数组的第一个元素。该函数可以返回第一个元素的值
+40. end() 将php内部指针移到数组的最后一个元素，这时同样返回数组的最后元素的值。
+以上是所有的基础知识。
     
