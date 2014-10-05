@@ -82,6 +82,10 @@ _end;
 28. 类的继承语法： class subsriber extends user{public: }
 29. 子类的方法会自动覆盖父类，可以使用parent关键字声明要用父类的方法： 
     class dad{public: function(){} } class son extends dad{public: function(){}; function1(){ parent::function()};}
-30. 
+30. is_array() 检查变量是否为数组
+31. foreach($paper as $item) 循环，可遍历数组中的所有元素，此例中将$paper数组中的每个元素付给$item变量。
+32. 关联数组：可以通过元素的名字而不是下标来访问元素。 如$paper['chuming']="fuck you"; echo $paper['chuming'];
+33. count() 统计数组中有多少元素。如count($paper); 如果要知道一个多维数组中到底有多少元素用： echo count($paper,1); 该参数
+只能是0和1， 0限制只统计顶层数组元素的个数，1强制且递归统计子数组的元素个数。
     
     
