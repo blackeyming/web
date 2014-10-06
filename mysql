@@ -45,3 +45,82 @@
     （1）*.* 所有的数据库及其对象； 
     （2）database.*仅为了调用database的数据库及其所有对象
     （3）database.object仅为调用database的数据库及其调用了object对象的对象
+12. 创建和检查新表
+    CREATE TABLE classics(
+    ->author VARCHAR(128),
+    ->title VARCHAR(128),
+    ->type VARCHAR(16),
+    ->year CHAR(4) ENGINE MyISAM;
+    then it will show Query OK, 0 rows affected(0.03 sec)
+    mysql-> DESCRIBE classics;
+13. 6 title in the table: field;type;null;key;default;extra 
+14. 数据类型： 
+    CHAR (n) n<256; 字符
+    VARCHAR(n) n<65536;
+    TEXT(n) n<65536; 文本
+    TINYTEXT(N) n<256;
+    MEDIUMTEXT(n) n<1677216
+    LOONGTEXT(n) n<4294967296;
+    BINARY(n)/BYTE(n) n<256;二进制
+    VARBINARY(n) n<65536;
+    BLOB(n) n<65535; 二进制大对象
+    TINBLOB(n) n<256;
+    MEDIUMBLOB(n)
+    LONGBLOB(n)
+    数值类型：(signed and unsigned)
+    TINYINT  1 Byte  
+    SMALLINT 2 Byte
+    MEDIUMINT 3 Byte
+    INT OR INTEGER 4 Byte
+    BIGINT 8Byte
+    FLOAT 4Byte (no unsigned)
+    DOUBLE OR REAL 8 Byte (no unsigned)
+15. DATETIME '0000-00-00-00 00:00:00'
+    DATE '0000-00-00'
+    TIMESTAMP '0000-00-00 00:00:00'
+    TIME '00:00:00'
+    YEAR 0000(only year 0000 and 1901-2155)
+16. 添加列例子：
+    ALTER TABLE classics ADD id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY; 
+17.     
+    
+
+13. women is a kind of changable animal.
+14. in this word with high speed information road and high tecnology, all peple concern about theirselves' hornor, 
+everything is decend into smaller and smaller, no one's honor is last forever, so does the bad insance. so why we still
+be foolish about purchasing the most virtual thing in this world, it is noncence at all. remember that the deepest stream lies smoothly
+with silence and peace;(da yin xi sheng ,da xiang wu xing)
+15.向表中增添数据：
+    INSERT INTO classics(author,title, type, year) // 告诉将数据插入到哪里
+    VALUE("chuming",'what','people','1992');
+16. SELECT *FROM classics;
+17. 重命名表classics: ALTER TABLE classics RENAME pre1900
+18. 改变列中的数据类型：ALTER TABLE classics MODIFY year SMALLINT;
+19. 添加新列：ALTER TABLE classics ADDP pages SMALLINT UNSIGNED;
+20. 显示更新的表： DESCIRBE classics;
+21. 重命名列：ALTER TABLE classics CHANGE type category VARCHAR(16); //将type该名为category； 必须指明数据类型
+22. 删除列： ALTER TABLE classics DROP pages; // DROP 是不可逆的，一不小心就可能删除整张表或是数据库
+23. 删除表： DROP TABLE classics;
+24. 显示所有的表：SHOW table
+25. 卡片索引：使得MySQL得以构建并能快速查询；
+26. 创建索引：在表中添加一个索引。可以在创建表时，也可以在创建表之后的任何时刻。
+27. 为classics表添加索引： ALTER TABLE classics ADD INDEX(author(20)); 在author列中创建索引，限制每个索引只能为前20个字符
+28. 每列的关键词为MUL时意味着该列中的的某个值可能会出现多次，这也是正常的，比如书的作者可能出现多次。
+29. 另一种方法： CREATE INDEX author ON classics(author(20)); 
+30. 创建表时添加索引： 为了节省当表很大时的时间。
+    CREATE TABLE classics(
+    author VARCHAR(128),
+    title VARCHAR(128),
+    category VARCHAR(16),
+    year SMALLIN,
+    INDEX(author(20)),
+    INDEX(title(20)),
+    INDEX(category(4)),
+    INDEX(year)   ) ENGINE MyISAM;
+31. 
+
+    
+    
+
+
+
