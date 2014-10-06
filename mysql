@@ -1,0 +1,47 @@
+1. 数据库是存储在计算机系统中以一种能够被快速发现的方式组织起来的记录或数据的一个结构化集合，其信息可以被迅速检索；
+2. 一个MySQL数据库包含多个表，表又有多行，每一行是一个记录，包含数据本身的列或字段。
+3. database（数据库）MySQL数据集的总容器；table（表）在数据库中存储实际数据的子容器；row（行）表中的一条记录，可以包含几个字段；column（列）行中的字段名
+4. 通过三种方式来访问数据库： 命令行； phpMyAdmin之类的网络接口及其运用php之类的编程语言；
+5. 启动MySQL（CMD）: "C:\Program Files(x86)\Zend\MySQL51\bin" -u root;以管理员的身份运行MySQL；
+6. "SHOW database"; 可以检查MySQL是否正常；
+7. MySQL的六种命令提示：
+   Mysql> MySQL准备好指令输入；
+   -> 等待下一行命令； 
+   '> 等待下一行以单引号开始的字符串； 
+   "> 等待下一行以双引号开始的字符串；
+   `>等待下一行以反记号开始的字符串； 
+   /*> 等待下一行以/*开始的字符串。
+8. 命令输入期间要终止它的运行，不要用ctrl+c，因为这会终止整个MySQL的运行，输入\c 按enter键； 如果是输入不封闭的字符串或是注释
+要先将其封闭，在输入\c，才能生效；
+9. SQL中的命令和关键词是不区分大小写的； 命令格式为了清晰采用大写； 表名在windows中是不区分大小写的，但在Linux中区分；
+10. 常见MySQL命令：
+    ALER（数据库/表）修改数据库或表
+    BACKUP(表)备份表
+    CREATE(数据库/表)创建数据库或表
+    DELETE（表和行的表达式）从表中删除行
+    DESCRIBE（表）说明表的列
+    DROP(数据库/表) 输出数据库或表
+    EXIT退出
+    GRANT(用户信息)修改用户权限
+    HELP(项目) 显示有关于项目的帮助
+    INSERT(数据表达式)插入数据
+    LOCK（表） 锁住表
+    QUIT()与exit()类似
+    RENAME(表)重命名表
+    SHOW(太多不能列出的项目)列出项目说明
+    SOURCE(文件名) 从文件名执行命令
+    STATUS()显示当前状态
+    TRUNCATE(表)清空表
+    UNLOCK（表）解锁表
+    UPDATE(数据表达式)更新现有的数据
+    USE(数据库) 打开数据库
+11. 创建数据库：
+    CREATE DATABASE publications创建名字为publications的数据库
+    USE publications 使用数据库
+    授权命令格式：GRANT PRIVILEGES ON database.object TO 'username'@'hostname' IDENTIFIED BY 'password'；创建用户，通过密码账号访问
+    例子： GRANT ALL ON publications.* TO 'jim'@'localhost' IDENTIFIED BY 'mypasswd';
+    允许用户jim@localhost 用密码mypasswd直接访问publications数据库；
+    GRANT命令的参数： 
+    （1）*.* 所有的数据库及其对象； 
+    （2）database.*仅为了调用database的数据库及其所有对象
+    （3）database.object仅为调用database的数据库及其调用了object对象的对象
