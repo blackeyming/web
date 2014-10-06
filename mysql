@@ -117,7 +117,64 @@ with silence and peace;(da yin xi sheng ,da xiang wu xing)
     INDEX(title(20)),
     INDEX(category(4)),
     INDEX(year)   ) ENGINE MyISAM;
-31. 
+31. 主键：唯一的键可以立即检索到唯一的结果
+32. ALTER TABLE classics ADD isbn CHAR(13) PRIMARY KEY;
+33. 创建带索引的classics表
+    CREATE TABLE classics(
+    author VARCHAR(128),
+    title VARCHAR(128),
+    year SMALLINT,
+    category VARCHAR(16),
+    isbn CHAR(13),
+    INDEX(author (20)),
+    INDEX(title(20)),
+    INDEX(categoy(4)),
+    INDEX(year),
+    PRIMARY KEY(isbn)  ) ENGINE MyISAM;
+34. 创建FULLTEXT索引，只能用于MyISAM表，是MySQL默认的存储引擎使用的类型。需要转换的语句为：ALTER TABEL tablename ENGINE=MyISAM;
+35. FULLTEXT只适用于CHAR ,VARCHAR ,TEXT 列
+36. 对于大型数据集，将数据加到一个没有FULLTEXT 索引的表后在创建索引比较快。
+    ALTER TABLE classics ADD FULLTEXT(author,title);
+37. SELECT: 从表中提取数据，基本语法是： SELECT something FROM tablename;
+    something 可以为'*' 表示所有， 可以为COUNT ，表示计算行数； 也为DISTINCT(DISTINTROW) 能够清除相同的数据的多重输入。
+38. DELETE ：从表中删除一行： DELETE FROM classics WHERE title='mmm';
+39. WHERE 关键词是SQL的核心
+40. LIMIT: 限定一次查询返回的结果
+    只有一参数表示返回的总行数，有两个参数，第一个表示起始行数，第二个还是返回的行数。
+41. MATCH..AGAINST
+    SELECT author, title FROM classics WHERE MATCH(author,title) AGAINST ('keywd');
+    查找带有这个keywd的行。 可以用关键标记“%“ 来代表省略的字符串。
+42. MATCH...AGAINST..IN BOOLEAN MODE
+    SELECT author,title FROM classics WHERE MATCH(author,title) AGAINST('+charles -speci' IN BOOLEAN MODE);
+    包含charles,所有有speci的都被排除。
+43. UPDATE..SET: UPDATE classics SET author='chuming' WHERE author ='what';
+44. ORDER BY: SELECT author,title FROM classics ORDER BY author ASC; // 按升序或降序来排序
+              SELECT author,title, year FROM classics ORDER BY author, year DESC; //  先按照author,再按照year来排序
+45. GROUP BY: SELECT category, COUNT(author) FROM classics GROUP BY category;// 可以知道在classics表的每个类别中有多少出版物
+46. 连接表：考虑一个能与classics表中购入的图书进行交叉引用的customers表
+    CREATE TABLE customers(
+    name VARCHAR(128),
+    isbn VARCHAR(128),
+    PRIMARY KEY(isbn)) ENGINE MyISAM;
+    INSERT INTO customers(name, isbn);
+    VALUES('joe','78987589');
+    INSERT INTO customers(name, isbn);
+    VALUES('chuming','7966395');
+    INSERT INTO customers(name, isbn) VALUES
+    ('JOE','3435'),('HI','3435');
+47. 使用连接表：SELECT name, author, title FROM customers,classics WHERE customers.isbn='classics.isbn';
+48. NATURAL JOIN (自然连接)： SELECT name, author, titel FROM customers NATURAL JOIN classics; //节省输入
+49. JOIN..ON : 指定一个列将两个表连接在一起：SELECT name, author,title FORM customers JOIN classics ON customers.isbn=classics.isbn;
+50. AS: 创建别名，节省输入和提高查询的可读性： SELECT name, author, title FORM customers AS cust, classics AS class WHERE cust.isbn=class.isbn;
+51. 使用逻辑运算符：   AND ,OR, NOT进一 步缩小选择。
+52. MySQL函数
+53. 用phpMyAdmin这样的管理程序来管理数据库和数据表。先安装并运行 Zend Sever CE 软件  打开浏览器输入http://localhost/phpMyAdmin;
+54. how to build a template which can bring people honer and interest when show concerns about others. in the future, 
+people never hide their purpose when communicate with others, we can know that it is not so kind in this world, man's 
+value is to create more value to others, which is not narrowly concern about money, but in essence and mind. people know
+what they truely want is great honor and high praises. that purpose will be more and more directly in the future world.
+
+
 
     
     
